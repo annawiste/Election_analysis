@@ -63,16 +63,3 @@ with open(file_to_load) as election_data:
 print(winning_candidate_summary)
 
 
-# Total number of votes cast
-#print(total_votes)
-
-# List of candidates who received votes
-#print(candidate_options)
-
-# Total number of votes each candidate received
-#print(candidate_votes)
-
-# Percentage of votes each candidate won
-#print(vote_percentage)
-
-# Winner based on popular vote
