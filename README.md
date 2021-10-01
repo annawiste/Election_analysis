@@ -80,4 +80,23 @@ The analysis includes an overview of votes cast, with county of origin, and numb
               winning_percentage = vote_percentage
               
 ## Election-Audit Summary
+This script can be used to audit any election results which are available in the same format as this input file. Namely, there is one row in the file for each vote, the county name is the second item in each row, and the candidate is the third. If the datafile is set up differently, two lines would need to be changed to reflect the setup of the new file. The candidate_name and county_name might need to be extracted from a different element of the row, rather than 2 and 1, respectively.
 
+      # For each row in the CSV file.
+    for row in reader:
+
+        # Add to the total vote count
+        total_votes = total_votes + 1
+
+        # Get the candidate name from each row.
+        candidate_name = row[2]
+
+        # 3: Extract the county name from each row.
+        county_name = row[1]
+
+The script is currently set to read in a .csv file, which is a very common file type for data like this. The script includes importing the library 'csv' to handle the file. There are similar libraries available in python to read in other data formats. Therefore if election results are available in another format, the script can be easily adapted by updating the library and the line in which the file is read. 
+
+      with open(file_to_load) as election_data:
+            reader = csv.reader(election_data)
+ 
+These are two ways in which the script could be easily adapted to work with different types of results files, as long as the data has one vote for each row and includes the county and candidate information in that row. 
